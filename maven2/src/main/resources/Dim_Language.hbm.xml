@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/xsd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.example.Dim_language" table="dim_language"> <!-- describe la clase en el atributo-->
+        <meta attribute="class-description"> <!--se utiliza para dar metadatos adicionales a la clase mapeada-->
+            Esta clase contiene el idioma
+        </meta>
+        <id name="LanguageCode" type="string" column="LanguageCode">
+            <generator class="assigned"/>
+        </id>
+        <property name="Language" column="Language" type="string"/>
+        <property name="created_dt" column="created_dt" type="LocalDateTime"/>
+        <property name="update_dt" column="update_dt" type="LocalDateTime"/>
+    </class>
+</hibernate-mapping>
