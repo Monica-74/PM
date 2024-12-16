@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvNombre" type="id">tv_nombre</item>
+    <item name="tvEmail" type="id">tv_email</item>
+    <item name="tvTlfn" type="id">tv_tlfn</item>
+    <item name="tvFoto" type="id">tv_foto</item>
+</resources>
