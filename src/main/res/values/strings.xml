@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Mi aplicación tab_layout</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <string name="contacto">CONTACTO</string>
+    <string name="nombre">Nombre</string>
+    <string name="email">Email</string>
+    <string name="telefono">Teléfono</string>
+    <string name="contactos_del_usuario">Contactos del usuario</string>
+    <string name="nuevo_n_contacto">Nuevo \n CONTACTO</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="modificar">Modificar</string>
+    <string name="esta_actividad_nueva_se_crea_como_ejemplo_para_iniciarla_desde_la_actividad_principal_n_acepta_vd_los_t_rminos">Esta actividad nueva se crea como ejemplo para iniciarla desde la actividad principal \n ¿Acepta Vd. los términos?</string>
+    <string name="informacion_del_usuario">Informacion del usuario</string>
+    <string name="nombre_nombre">Nombre</string>
+    <string name="Email">Email</string>
+    <string name="correos_del_usuario">Correos del usuario</string>
+    <string name="nuevo_contacto">NUEVO \n CONTACTO</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="anadircontacto">Añadir contacto</string>
+
+</resources>
