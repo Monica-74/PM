@@ -73,6 +73,7 @@ public class VentanaConBorderLayoutBasico extends JFrame {
         // es lo que esta entre el boton centro y el area de texto centro abajo
         splitCentral.setDividerLocation(400);
         splitCentral.setOneTouchExpandable(true);
+        lblNorte.setFont(fuente);
 
         //agrero los componenetes al panel contendor del JFrma
         //en las posiciones del border layout
