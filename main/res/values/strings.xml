@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    Texto general-->
-    <string name="app_name">Hobies y Viajes</string>
+    <string name="app_name">Hobbies y Viajes</string>
     <string name="action_settings">Settings</string>
 
     <!-- Esto es de los fragments para navegar  -->
@@ -29,15 +30,42 @@
     <string name="name_monica">Monica</string>
     <string name="boton_cancelar">Botón de cancelar</string>
     <string name="boton_aceptar">Botón de aceptar</string>
-    <string name="go_to_first_fragment">Go to First Fragment</string>
+    <string name="go_to_first_fragment">Ir al Primer Fragmento</string>
     <string name="hobbies_y_viajes">Hobbies y Viajes</string>
     <string name="a_adir_hobbies">Añadir Hobbies</string>
-    <string name="a_adir_viaje">Añadir Viaje</string>
-    <string name="add_hobby_icon_desc">add_hobby_icon_desc</string>
+    <string name="a_adir_viajes">Añadir Viajes</string>
+    <string name="add_hobby_icon_desc">Descripción del ícono para añadir hobby</string>
     <string name="viajes_viajes">Viajes</string>
     <string name="a_adir_informacion">Añadir información</string>
     <string name="btn_aceptar1">Aceptar</string>
     <string name="btn_aceptar2">Aceptar</string>
-
+    <string name="nuevo_contacto">Nuevo contacto</string>
+    <string name="contacto">Contacto</string>
+    <string name="email">Correo electrónico</string>
+    <string name="telefono">Teléfono</string>
+    <string name="anadircontacto">Añadir contacto</string>
+    <string name="nombre">Nombre</string>
+    <string name="correos_del_usuario">Correos del usuario</string>
+    <string name="modificar">Modificar</string>
+    <string name="Viaje">Viaje</string>
+    <string name="viaje_imagen">Imagen del viaje</string>
+    <string name="hint_nombre">Introduce el nombre</string>
+    <string name="introduce_el_nombre">Introduce el nombre</string>
+    <string name="Nombre">Nombre:</string>
+    <string name="Pais">País:</string>
+    <string name="pais">País:</string>
+    <string name="introduce_el_pa_s">Introduce el país</string>
+    <string name="introduce_la_descripcion">Introduce la descripción</string>
+    <string name="descripcion">Descripción:</string>
+    <string name="Descripcion">Descripción:</string>
+    <string name="agregar_nuevo">Agregar Nuevo</string>
+    <string name="btn_agregar">Agregar Nuevo Viaje</string>
+    <string name="btnAgregarViajes">Agregar Nuevo Viaje</string>
+    <string name="MisViajes">Mis Viajes</string>
+    <string name="nombreViaje">Nombre :</string>
+    <string name="descripcionViaje">Descripción:</string>
+    <string name="paisViaje">País:</string>
+    <string name="fotoviaje">fotoviaje</string>
+    <string name="ver_viajes">Ver Viajes</string>
 
 </resources>

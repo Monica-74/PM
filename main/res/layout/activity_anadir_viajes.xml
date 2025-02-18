@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <ImageView
+         android:id="@+id/fotoviaje"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/fotoviaje"
+        app:srcCompat="@drawable/fotoviaje"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp" />
+
+            <EditText
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del viaje"
+                android:inputType="text"
+                tools:ignore="Autofill,HardcodedText" />
+
+            <EditText
+                android:id="@+id/descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="Descripcion"
+                android:inputType="textMultiLine"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/Pais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="País"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="HardcodedText" />
+
+
+            <Button
+                android:id="@+id/btnAceptarViajes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:backgroundTint="#E59BED85"
+                android:text="Aceptar"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnCancelarViajes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:textColor="#2196F3"
+                android:backgroundTint="#E59BED85"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

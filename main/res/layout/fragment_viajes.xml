@@ -1,30 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
-    android:background="@android:color/white">
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
-<!--    &lt;!&ndash; Título del fragmento &ndash;&gt;-->
-<!--    <TextView-->
-<!--        android:id="@+id/tv_viajes_title"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/viajes_viajes"-->
-<!--        android:textSize="24sp"-->
-<!--        android:textColor="@android:color/black"-->
-<!--        android:textStyle="bold"-->
-<!--        android:layout_marginBottom="8dp" />-->
 
-    <!-- Información del fragmento -->
+
+
+
+    <!-- Imagen -->
+    <ImageView
+        android:id="@+id/fotoviaje"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/fotoviaje"
+        app:srcCompat="@drawable/fotoviaje"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Nombre -->
+    <TextView
+        android:id="@+id/nombreViaje"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nombreViaje"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/fotoviaje"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Viaje a París" />
+
+    <!-- Descripción -->
+    <TextView
+        android:id="@+id/descripcionViaje"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/descripcionViaje"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/fotoviaje"
+        app:layout_constraintTop_toBottomOf="@id/nombreViaje"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        tools:text="Un increíble viaje a París" />
+
+    <!-- País -->
+    <TextView
+        android:id="@+id/paisViaje"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/paisViaje"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/fotoviaje"
+        app:layout_constraintTop_toBottomOf="@id/descripcionViaje"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        tools:text="Francia" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewViajes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/paisViaje"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerViewViajes"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:padding="16dp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:padding="16dp">-->
+
+<!--    &lt;!&ndash; Imagen &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/foto"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:contentDescription="@string/viaje_imagen"-->
+<!--        app:srcCompat="@drawable/viaje"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginEnd="16dp" />-->
+
+<!--    &lt;!&ndash; Nombre &ndash;&gt;-->
 <!--    <TextView-->
-<!--        android:id="@+id/tv_viajes_description"-->
-<!--        android:layout_width="wrap_content"-->
+<!--        android:id="@+id/Nombre"-->
+<!--        android:layout_width="0dp"-->
 <!--        android:layout_height="wrap_content"-->
+<!--        android:text="Nombre :"-->
 <!--        android:textSize="16sp"-->
-<!--        android:textColor="@android:color/darker_gray"-->
-<!--        android:gravity="center" />-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toEndOf="@id/foto"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        tools:ignore="HardcodedText" />-->
 
-</LinearLayout>
+<!--    &lt;!&ndash; Descripción &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/descripcion"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Descripción :"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/foto"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/Nombre"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        tools:ignore="HardcodedText" />-->
+
+<!--    &lt;!&ndash; País &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/Pais"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="País :"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/foto"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/descripcion"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        tools:ignore="HardcodedText" />-->
+<!--    <ListView-->
+<!--        android:id="@+id/listViewViajes"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

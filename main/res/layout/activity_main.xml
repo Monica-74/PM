@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/lytContenedor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,21 +7,24 @@
     android:background="@color/white"
     android:padding="16dp">
 
-
     <TextView
         android:id="@+id/lblLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/login"
-        android:textSize="20sp" />
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
-    <EditText android:id="@+id/txtLogin"
+    <EditText
+        android:id="@+id/txtLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:hint="@string/ingrese_su_usuario"
         android:inputType="text"
-        android:padding="8dp"
+        android:padding="12dp"
+        android:textSize="28sp"
         android:layout_marginBottom="16dp" />
 
     <TextView
@@ -30,17 +32,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password"
-        android:textSize="20sp" />
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/txtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="Password"
         android:hint="@string/ingrese_su_contrasena"
         android:inputType="textPassword"
-        android:padding="8dp"
+        android:padding="12dp"
+        android:textSize="28sp"
         android:layout_marginBottom="24dp" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,26 +55,27 @@
 
         <Button
             android:id="@+id/btnAceptar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
             android:backgroundTint="#8FE46D"
             android:text="@string/aceptar"
-            android:textColor="#F5FFFFFF"/>
-<!--            android:contentDescription="@string/boton_aceptar"/>-->
+            android:textColor="#F5FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/btnCancelar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
             android:backgroundTint="#EAA81919"
             android:text="@string/cancelar"
-            android:textColor="#F7FFFFFF"/>
-<!--            android:contentDescription="@string/boton_cancelar"/>-->
+            android:textColor="#F7FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
 </LinearLayout>
-
