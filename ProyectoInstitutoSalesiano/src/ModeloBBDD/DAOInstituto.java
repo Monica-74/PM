@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class DAOInstituto extends ArrayList<Object> {
     private static final String URL = "jdbc:mysql://localhost:3306/instituto";
     private static final String USER = "root";
-    private static final String PASSWORD = "Root1234";
+    private static final String PASSWORD = "1234";
 
     public static Connection connect() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);

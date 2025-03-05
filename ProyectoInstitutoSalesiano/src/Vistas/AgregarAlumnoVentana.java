@@ -12,7 +12,7 @@ import java.awt.event.WindowEvent;
 public class AgregarAlumnoVentana extends JFrame {
     Container panel;
     GridLayout gLayout;
-   // JButton btnAceptar = new JButton("Aceptar");
+    // JButton btnAceptar = new JButton("Aceptar");
     //JButton btnCancelar = new JButton("Cancelar");
     JLabel lblNombre = new JLabel("Nombre del alumno: ");
     JLabel lblDireccion = new JLabel("Dirección del alumno: ");
@@ -33,8 +33,8 @@ public class AgregarAlumnoVentana extends JFrame {
 
     private VentanaPrincipal ventanaPrincipal;
 
-    public AgregarAlumnoVentana() {
-      //  this.ventanaPrincipal = ventanaPrincipal;
+    public AgregarAlumnoVentana(VentanaPrincipal ventanaPrincipal) {
+        this.ventanaPrincipal = ventanaPrincipal;
         agregarAlumno();
         iniciarEventos();
         initGUI();
@@ -43,8 +43,8 @@ public class AgregarAlumnoVentana extends JFrame {
 
 
     private void initGUI() {
-       // txtDireccion = new JTextArea();
-       // txtDireccion.setBorder(BorderFactory.createBevelBorder(1));
+        // txtDireccion = new JTextArea();
+        // txtDireccion.setBorder(BorderFactory.createBevelBorder(1));
 
         JPanel alumnoPanel = new JPanel(new GridBagLayout());
         alumnoPanel.add(lblNombre, new GridBagConstraints(0, 1, 1, 1, 0.0, 100.0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(12, 12, 0, 0), 0, 0));
@@ -106,7 +106,7 @@ public class AgregarAlumnoVentana extends JFrame {
         }
 
 
-         //Validar que el nombre y la dirección no estén vacíos
+        //Validar que el nombre y la dirección no estén vacíos
         if (nombre.trim().isEmpty() || direccion.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre y la dirección no pueden estar vacíos.", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Salir del método si el nombre o la dirección están vacíos
@@ -116,14 +116,20 @@ public class AgregarAlumnoVentana extends JFrame {
         int resultado = ControladorAlumnos.insertarAlumno(nombre, direccion, estadoMatricula);
         if (resultado > 0) {
             JOptionPane.showMessageDialog(this, "Alumno agregado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
+//    TablaAlumnosModel tablaAlumnosModel= (TablaAlumnosModel) VentanaPrincipal.tablaAlumnos.getModel();
+//   tablaAlumnosModel.recargarDatos();
+//
+//    AgregarAlumnoVentana.this.ventanaPrincipal.
             // Actualizar la tabla de alumnos en la ventana principal
-            VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-            if (ventanaPrincipal != null) {
-                ventanaPrincipal.actualizarTablaAlumnos();
-            } else {
-                System.out.println("No se pudo actualizar la tabla porque es null.");
-            }
+           //***** VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(this.ventanaPrincipal);
+            //*****if (ventanaPrincipal != null) {
+               // ventanaPrincipal.actualizarTablaAlumnos();
+                TablaAlumnosModel modeloTabla = (TablaAlumnosModel) ventanaPrincipal.tablaAlumnos.getModel();
+                modeloTabla.recargarDatos(); // Llamamos al método para refrescar la tabla
+            //*****} else {
+              //*****  System.out.println("No se pudo actualizar la tabla porque es null.");
+            //*****}
+            this.ventanaPrincipal.tablaAlumnos.setModel(new TablaAlumnosModel());
             dispose(); // Cerrar la ventana después de agregar el alumno
 
         } else {
@@ -158,10 +164,10 @@ public class AgregarAlumnoVentana extends JFrame {
         txtNombre.setSize(25, 300);
         this.setTitle("Nuevo Alumno");
     }
+}
 
 
 //    public static void main(String[] args) {
 //        AgregarAlumnoVentana form = new AgregarAlumnoVentana();
 //        form.setVisible(true);
 //    }
-}

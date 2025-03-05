@@ -14,6 +14,13 @@ public class Matricula {
         this.nombreAsignatura = nombreAsignatura;
         this.nota = nota;
     }
+    public Matricula(int idAlumno, int idAsignatura, String nombreAsignatura, double nota) {
+        this.id = id;
+        this.idAlumno = idAlumno;
+        this.idAsignatura = idAsignatura;
+        this.nombreAsignatura = nombreAsignatura;
+        this.nota = nota;
+    }
 
     public int getId() {
         return id;
@@ -37,6 +44,6 @@ public class Matricula {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", ID Alumno: " + idAlumno + ", ID Asignatura: " + idAsignatura + ", Nota: " + nota;
+        return "Matricula: " + id + ", ID Alumno: " + idAlumno + ", ID Asignatura: " + idAsignatura + ", Nota: " + nota;
     }
 }

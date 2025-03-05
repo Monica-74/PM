@@ -227,7 +227,7 @@
 //        List<Alumno> alumnos = obtenerAlumnosDesdeBD(); // Implementa este método
 //
 //        //Crea el modelo de la tabla
-//        TablaAlumnosModel modeloAlumnos = new TablaAlumnosModel();
+//        TablaAlumnosModel modeloAlumnos = new TablaAlumnosModel((ArrayList<Alumno>) alumnos);
 //        //Crea una tabla a partir del modelo
 //        tablaAlumnos = new JTable(modeloAlumnos);
 //
@@ -299,7 +299,7 @@
 //    public static void actualizarTablaAlumnos() {
 //        ArrayList<Alumno> alumnos = (ArrayList<Alumno>) obtenerAlumnosDesdeBD();
 //
-//        TablaAlumnosModel modeloAlumnos = new TablaAlumnosModel();
+//        TablaAlumnosModel modeloAlumnos = new TablaAlumnosModel(alumnos);
 //
 //        // Verificar que modeloAlumnos y tablaAlumnos estén inicializados
 //        if (modeloAlumnos == null || tablaAlumnos == null) {

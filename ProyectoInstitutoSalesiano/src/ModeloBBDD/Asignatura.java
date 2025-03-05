@@ -6,11 +6,19 @@ public class Asignatura {
     private String nombre;
     private int curso;
 
+
+
     public Asignatura(int id, String nombre, int curso) {
         this.id = id;
         this.nombre = nombre;
         this.curso = curso;
     }
+
+    public Asignatura(String nombre, int curso) {
+        this.nombre = nombre;
+        this.curso = curso;
+    }
+
     public int getId() {
         return id;
     }
@@ -22,6 +30,6 @@ public class Asignatura {
     }
     @Override
     public String toString() {
-        return "ID: " + id + ", Nombre: " + nombre + ", Curso: " + curso;
+        return "Asignatura: " + id + ", Nombre: " + nombre + ", Curso: " + curso;
     }
 }

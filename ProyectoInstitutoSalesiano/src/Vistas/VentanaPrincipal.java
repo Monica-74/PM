@@ -69,8 +69,14 @@ public class VentanaPrincipal extends JFrame{
     static JTable tablaAlumnos;
 
 
+    public VentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
+        //this.VentanaPrincipal = ventanaPrincipal;
+        initGUI();
+        initMenu();
+        initEventos();
+        initToolBar();
+    }
     public VentanaPrincipal() {
-
         initGUI();
         initMenu();
         initEventos();
@@ -158,7 +164,7 @@ public class VentanaPrincipal extends JFrame{
 
     }
     public void abrirVentanaNuevoAlumno() {
-        AgregarAlumnoVentana agregarAlumnoVentana = new AgregarAlumnoVentana();
+        AgregarAlumnoVentana agregarAlumnoVentana = new AgregarAlumnoVentana(this);
         agregarAlumnoVentana.setVisible(true);
 
         agregarAlumnoVentana.addWindowListener(new WindowAdapter() {
@@ -288,8 +294,8 @@ public class VentanaPrincipal extends JFrame{
         //modeloAlumnos.actualizarDatos();
 
         // Notificar a la tabla que los datos han cambiado
-       // modeloAlumnos.fireTableDataChanged();
-       // ((TablaAlumnosModel) tablaAlumnos.getModel()).cargarDatos();
+        // modeloAlumnos.fireTableDataChanged();
+        // ((TablaAlumnosModel) tablaAlumnos.getModel()).cargarDatos();
         // Refrescar la tabla
         tablaAlumnos.repaint();
         tablaAlumnos.revalidate();
@@ -299,7 +305,7 @@ public class VentanaPrincipal extends JFrame{
     }
 
 
-    public static void main (String[] args){
+    public void main (String[] args){
         VentanaPrincipal ventana = new VentanaPrincipal();
         ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ventana.setVisible(true);

@@ -85,8 +85,13 @@ public class TablaAlumnosModel extends AbstractTableModel{
     private void actualizarVistaConAlumnos(List<Alumno> nuevosAlumnos) {
         this.alumnos = (ArrayList<Alumno>) nuevosAlumnos; // Actualiza la lista de alumnos
         fireTableDataChanged(); // Notifica a la tabla de los cambios
-        }
     }
 
+    public void recargarDatos() {
+        actualizarDatos(); // Vuelve a cargar los datos desde la base de datos
+        fireTableDataChanged(); // Notifica a la tabla que los datos han cambiado
+    }
+
+}
 
 
