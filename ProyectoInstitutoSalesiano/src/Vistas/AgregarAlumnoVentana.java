@@ -43,14 +43,14 @@ public class AgregarAlumnoVentana extends JFrame {
 
 
     private void initGUI() {
-        // txtDireccion = new JTextArea();
-        // txtDireccion.setBorder(BorderFactory.createBevelBorder(1));
+        txtDireccion = new JTextArea();
+        txtDireccion.setBorder(BorderFactory.createBevelBorder(1));
 
         JPanel alumnoPanel = new JPanel(new GridBagLayout());
         alumnoPanel.add(lblNombre, new GridBagConstraints(0, 1, 1, 1, 0.0, 100.0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(12, 12, 0, 0), 0, 0));
         alumnoPanel.add(txtNombre, new GridBagConstraints(1, 1, 3, 1, 100.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(12, 12, 0, 12), 0, 0));
         alumnoPanel.add(lblDireccion, new GridBagConstraints(0, 2, 1, 1, 0.0, 100.0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(12, 12, 0, 0), 0, 0));
-        alumnoPanel.add(txtDireccion, new GridBagConstraints(1, 2, 4, 4, 100.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(12, 12, 0, 12), 0, 0));
+        alumnoPanel.add(direccionScroll, new GridBagConstraints(1, 2, 4, 4, 100.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(12, 12, 0, 12), 0, 0));
         alumnoPanel.add(lblestadoMatricula, new GridBagConstraints(0, 6, 1, 1, 0.0, 100.0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(12, 12, 0, 0), 0, 0));
         alumnoPanel.add(estadoMatriculaCombo, new GridBagConstraints(1, 6, 3, 1, 100.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(12, 12, 0, 12), 0, 0));
 
@@ -121,13 +121,13 @@ public class AgregarAlumnoVentana extends JFrame {
 //
 //    AgregarAlumnoVentana.this.ventanaPrincipal.
             // Actualizar la tabla de alumnos en la ventana principal
-           //***** VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(this.ventanaPrincipal);
+            //***** VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(this.ventanaPrincipal);
             //*****if (ventanaPrincipal != null) {
-               // ventanaPrincipal.actualizarTablaAlumnos();
-                TablaAlumnosModel modeloTabla = (TablaAlumnosModel) ventanaPrincipal.tablaAlumnos.getModel();
-                modeloTabla.recargarDatos(); // Llamamos al método para refrescar la tabla
+            // ventanaPrincipal.actualizarTablaAlumnos();
+            TablaAlumnosModel modeloTabla = (TablaAlumnosModel) ventanaPrincipal.tablaAlumnos.getModel();
+            modeloTabla.recargarDatos(); // Llamamos al método para refrescar la tabla
             //*****} else {
-              //*****  System.out.println("No se pudo actualizar la tabla porque es null.");
+            //*****  System.out.println("No se pudo actualizar la tabla porque es null.");
             //*****}
             this.ventanaPrincipal.tablaAlumnos.setModel(new TablaAlumnosModel());
             dispose(); // Cerrar la ventana después de agregar el alumno

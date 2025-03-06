@@ -4,17 +4,17 @@ public class Asignatura {
 
     private int id;
     private String nombre;
-    private int curso;
+    private String curso;
 
 
 
-    public Asignatura(int id, String nombre, int curso) {
+    public Asignatura(int id, String nombre, String curso) {
         this.id = id;
         this.nombre = nombre;
         this.curso = curso;
     }
 
-    public Asignatura(String nombre, int curso) {
+    public Asignatura(String nombre, String curso) {
         this.nombre = nombre;
         this.curso = curso;
     }
@@ -25,7 +25,7 @@ public class Asignatura {
     public String getNombre() {
         return nombre;
     }
-    public int getCurso() {
+    public String getCurso() {
         return curso;
     }
     @Override

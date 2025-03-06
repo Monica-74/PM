@@ -1,14 +1,10 @@
 package Vistas;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 
 import Controlador.ControladorAlumnos;
 import ModeloBBDD.Alumno;
+import ModeloBBDD.Asignatura;
+import ModeloBBDD.DAOInstituto;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -60,16 +56,22 @@ public class VentanaPrincipal extends JFrame{
     JMenu menuAsignaturas = new JMenu("Asignaturas");
     JMenu menuMatriculas = new JMenu("Matriculas");
     JMenuItem menuAgregarAlumno = new JMenuItem("Agregar Alumno");
+    JMenuItem menuAgregarAsignaturas = new JMenuItem("Agregar Asignaturas");
 
     //Barra de herramientas
     JToolBar barraTool = new JToolBar();
     JButton botonAbrir = new JButton();
     //Defino el panel donde va a ir la tabla de alumnos
     JPanel panelAlumnos = new JPanel(new BorderLayout());
+    JPanel panelAsignaturas = new JPanel(new BorderLayout());
+
     static JTable tablaAlumnos;
+    static JTable tablaAsignaturas;
+
+    private DAOInstituto daoInstituto = new DAOInstituto();//esto es nuevo
 
 
-    public VentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
+    public  void VentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
         //this.VentanaPrincipal = ventanaPrincipal;
         initGUI();
         initMenu();
@@ -135,10 +137,11 @@ public class VentanaPrincipal extends JFrame{
         menuAlumnos.add(menuAgregarAlumno);
         menuAgregarAlumno.setFont(fuenteMenu);
         menuAsignaturas.add(new JSeparator());
+        menuAsignaturas.add(menuAgregarAsignaturas);
+        menuAgregarAsignaturas.setFont(fuenteMenu);
+        menuAsignaturas.add(new JSeparator());
 
-        // Aquí irían más opciones de menú
-        //
-        //Por ultimo la barra de menu se la pongo a la ventana
+
         this.setJMenuBar(barra);
 
     }
@@ -162,7 +165,21 @@ public class VentanaPrincipal extends JFrame{
             }
         });
 
+        menuAgregarAsignaturas.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                abrirVentanaNuevaAsignatura();
+            }
+        });
+        botonAbrir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                abrirExploradorArchivos();
+            }
+        });
+
     }
+
+
+
     public void abrirVentanaNuevoAlumno() {
         AgregarAlumnoVentana agregarAlumnoVentana = new AgregarAlumnoVentana(this);
         agregarAlumnoVentana.setVisible(true);
@@ -173,8 +190,20 @@ public class VentanaPrincipal extends JFrame{
                 actualizarTablaAlumnos(); // Actualizar la tabla
             }
         });
+
     }
 
+    private void abrirVentanaNuevaAsignatura() {
+        AgregarAsignaturaVentana agregarAsignaturaVentana = new AgregarAsignaturaVentana(this);
+        agregarAsignaturaVentana.setVisible(true);
+
+        agregarAsignaturaVentana.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                actualizarTablaAlumnos(); // Actualizar la tabla
+            }
+        });
+    }
 
     public void abrirExploradorArchivos() {
         JFileChooser chooser = new JFileChooser("C:/Program Files/");
@@ -209,6 +238,7 @@ public class VentanaPrincipal extends JFrame{
     }
     public void establecerPestanas() {
         iniciarTablaAlumnos();
+        iniciarTablaAsignaturas();
 
         // Redimensionar los iconos antes de asignarlos a las pestañas
         ImageIcon iconoAlumno = createResizedIcon("C:\\Users\\blanco.mamoi\\Downloads\\PS\\ProyectoInstitutoSalesiano\\src\\Vistas\\alumno.png", 24, 24);
@@ -258,6 +288,33 @@ public class VentanaPrincipal extends JFrame{
         tablaAlumnos.setCellSelectionEnabled(true);
 
     }
+
+    private void iniciarTablaAsignaturas() {
+        //Se crea una Jtable a partir del modelo definido AbstractTableModel
+
+        tablaAsignaturas = new JTable(new TablaAsignaturasModel());
+        JScrollPane pnScroll = new JScrollPane(tablaAsignaturas);
+        panelAsignaturas.add(pnScroll, BorderLayout.CENTER);
+
+        //Le asigna un modo de redimensionamiento de columnas especial a la tabla
+        tablaAsignaturas.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        //A la tabla le voy a poner color de fuente y fondo diferente al blanco
+        //tabla.setForeground(Color.white);
+        //tabla.setBackground(Color.blue);
+
+        /** Instalacion de renderers o maquillaje de celdas*/
+        //Primero, hallo el modelo de columnas de la tabla
+        TableColumnModel tcm = tablaAsignaturas.getColumnModel();
+
+
+
+        //Selecciones de celdas, filas, y columnas varias
+        tablaAsignaturas.setRowSelectionAllowed(true);
+        tablaAsignaturas.setColumnSelectionAllowed(true);
+        tablaAsignaturas.setCellSelectionEnabled(true);
+
+    }
     public static ArrayList<Alumno> obtenerAlumnosDesdeBD() {
         ArrayList<Alumno> alumnos = new ArrayList<>();
         try (Connection conn = connect()) {
@@ -288,24 +345,55 @@ public class VentanaPrincipal extends JFrame{
             return;
         }
         tablaAlumnos.validate();
-        //TablaAlumnosModel modeloAlumnos = (TablaAlumnosModel) tablaAlumnos.getModel();
-
-        // Actualizar los datos del modelo
-        //modeloAlumnos.actualizarDatos();
-
-        // Notificar a la tabla que los datos han cambiado
-        // modeloAlumnos.fireTableDataChanged();
-        // ((TablaAlumnosModel) tablaAlumnos.getModel()).cargarDatos();
-        // Refrescar la tabla
         tablaAlumnos.repaint();
         tablaAlumnos.revalidate();
+    }
+
+    private void iniciarTablaAsignaturas() {
+        tablaAsignaturas = new JTable(new TablaAsignaturasModel());
+        JScrollPane pnScroll = new JScrollPane(tablaAsignaturas);
+        panelAsignaturas.add(pnScroll, BorderLayout.CENTER);
+        tablaAsignaturas.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+    }
+    public void actualizarTablaAsignaturas() {
+        ArrayList<Asignatura> asignaturas = obtenerAsignaturasDesdeBD();
 
 
+        if (tablaAsignaturas == null) {
+            System.err.println("Error: tablaAsignaturas no ha sido inicializada.");
+            return;
+        }
+        tablaAsignaturas.setModel(new TablaAsignaturasModel());
+        tablaAsignaturas.validate();
+        tablaAsignaturas.repaint();
+        tablaAsignaturas.revalidate();
+    }
 
+    public static ArrayList<Asignatura> obtenerAsignaturasDesdeBD() {
+        ArrayList<Asignatura> asignaturas = new ArrayList<>();
+        try (Connection conn = connect()) {
+            // Consulta SQL para obtener las asignaturas
+            String query = "SELECT id, nombre, curso FROM asignatura ORDER BY nombre ASC";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            // Recorrer el resultado y crear objetos Asignatura
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                String curso = rs.getString("curso");
+                Asignatura asignatura = new Asignatura(id, nombre, curso);
+                asignaturas.add(asignatura);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return asignaturas;
     }
 
 
-    public void main (String[] args){
+
+    public static void main (String[] args){
         VentanaPrincipal ventana = new VentanaPrincipal();
         ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ventana.setVisible(true);
@@ -313,4 +401,6 @@ public class VentanaPrincipal extends JFrame{
 
     }
 
-}
+
+
+   }

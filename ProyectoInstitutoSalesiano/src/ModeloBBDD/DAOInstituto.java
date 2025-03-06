@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class DAOInstituto extends ArrayList<Object> {
     private static final String URL = "jdbc:mysql://localhost:3306/instituto";
     private static final String USER = "root";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "Root1234";
 
     public static Connection connect() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
@@ -36,17 +36,20 @@ public class DAOInstituto extends ArrayList<Object> {
         return alumnos;
     }
 
-    private static void insertarAsignatura(String nombre, int curso) {
+    public int insertarAsignatura(Asignatura asignatura) {
+        int resultado = 0;
         try (Connection conn = connect()) {
             String query = "INSERT INTO asignaturas (nombre, curso) VALUES (?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, nombre);
-            stmt.setInt(2, curso);
-            stmt.executeUpdate();
+            stmt.setString(1, asignatura.getNombre());
+            stmt.setString(2, asignatura.getCurso());
+            resultado =stmt.executeUpdate();
+           // stmt.executeUpdate();
             System.out.println("Asignatura insertada correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return resultado;
     }
 
 
@@ -80,6 +83,28 @@ public class DAOInstituto extends ArrayList<Object> {
             e.printStackTrace();
         }
         return resultado;
+    }
+    public ArrayList<Asignatura> obtenerAsignaturas() {
+        ArrayList<Asignatura> listaAsignaturas = new ArrayList<>();
+        String sql = "SELECT * FROM asignaturas"; // Ajusta el nombre de la tabla si es diferente
+
+        try (Connection con = connect();
+             PreparedStatement pstmt = con.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                String curso = rs.getString("curso");
+
+                Asignatura asignatura = new Asignatura(id, nombre, curso);
+                listaAsignaturas.add(asignatura);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaAsignaturas;
     }
 
 
@@ -146,4 +171,7 @@ public class DAOInstituto extends ArrayList<Object> {
         }
         return notaMedia;
     }
+
+
+
 }

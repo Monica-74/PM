@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Vistas.VentanaPrincipal.tablaAlumnos;
+//import static Vistas.VentanaPrincipal.tablaAlumnos;
 
 public class TablaAlumnosModel extends AbstractTableModel{
 
@@ -93,5 +93,4 @@ public class TablaAlumnosModel extends AbstractTableModel{
     }
 
 }
-
 
